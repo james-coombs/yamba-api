@@ -1,0 +1,14 @@
+<% project_name = 'wember-api' %>
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: wember-api_development
+
+test:
+  <<: *default
+  database: wember-api_test
