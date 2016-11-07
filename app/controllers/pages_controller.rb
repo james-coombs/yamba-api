@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class PagesController < OpenReadController
   before_action :set_page, only: [:show, :update, :destroy]
 
   # GET /pages
@@ -54,6 +54,6 @@ class PagesController < ApplicationController
     end
 
     def page_params
-      params.require(:page).permit(:title, :body, :code, :image, :user_id)
+      params.require(:page).permit(:title, :body, :code, :image, :user_id, :server_id)
     end
 end
