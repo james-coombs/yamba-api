@@ -54,6 +54,6 @@ class PagesController < OpenReadController
     end
 
     def page_params
-      params.require(:page).permit(:title, :body, :code, :image, :user_id, :server_id)
+      params.require(:page).permit(:title, :body, :code, :image, :server_id,) #user_id)
     end
 end
