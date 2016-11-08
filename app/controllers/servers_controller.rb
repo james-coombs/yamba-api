@@ -1,16 +1,16 @@
-class ServersController < ProtectedController
+class ServersController < OpenReadController
   before_action :set_server, only: [:show, :update, :destroy]
 
   # GET /servers
   # GET /servers.json
   def index
-    # @servers = Server.all
-    #
-    # render json: @servers
-
-    @servers = current_user.servers
+    @servers = Server.all
 
     render json: @servers
+
+    # @servers = current_user.servers
+    #
+    # render json: @servers
   end
 
   # GET /servers/1
@@ -23,6 +23,7 @@ class ServersController < ProtectedController
   # POST /servers.json
   def create
     @server = Server.new(server_params)
+    @server.user_id = current_user.id
 
     if @server.save
       render json: @server, status: :created, location: @server

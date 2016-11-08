@@ -19,6 +19,7 @@ class PagesController < OpenReadController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
+    @page.user_id = current_user.id
 
     if @page.save
       render json: @page, status: :created, location: @page
@@ -54,6 +55,6 @@ class PagesController < OpenReadController
     end
 
     def page_params
-      params.require(:page).permit(:title, :body, :code, :image, :server_id,) #user_id)
+      params.require(:page).permit(:title, :body, :server_id, :user_id)
     end
 end

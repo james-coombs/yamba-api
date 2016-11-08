@@ -1,9 +1,8 @@
 curl --include --request POST http://localhost:4741/servers \
-  --header "Authorization: Token token=BAhJIiUxZmMwY2U3MDBkNWIyMWM2YzhiODhlZjIzM2Q5MDJmYgY6BkVG--61cde3c254ce3ad5fc12b73e793ee1e381dfe4a8" \
+  --header "Authorization: Token token=BAhJIiVmNjBmMmIwOTc2MDE4MWE2ODc1NzY3ZWM2MTVlM2VlYgY6BkVG--089680f84d91f521659a1e52e91c693a4117edd0" \
   --header "Content-Type: application/json" \
   --data '{
     "server": {
-      "name": "example",
-      "user_id": 1
+      "name": "example 3"
     }
   }'
