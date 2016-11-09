@@ -50,11 +50,11 @@ class PagesController < OpenReadController
 
   private
 
-    def set_page
-      @page = Page.find(params[:id])
-    end
+  def set_page
+    @page = Page.find(params[:id])
+  end
 
-    def page_params
-      params.require(:page).permit(:title, :body, :server_id, :user_id)
-    end
+  def page_params
+    params.require(:page).permit(:title, :body, :server_id, :user_id, :image)
+  end
 end
