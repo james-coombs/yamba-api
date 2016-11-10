@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Server.create([
+                { name: 'Wember'},
+           ])
+
 # Page.create([
                 # { url: 'www.example.com',
                 #   title: 'Example',

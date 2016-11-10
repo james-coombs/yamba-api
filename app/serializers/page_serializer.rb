@@ -1,6 +1,6 @@
 class PageSerializer < ActiveModel::Serializer
   attributes :id, :title, :body, :server, :can_be_deleted, :image, :image_url,
-             :attached_image, :image_file_name
+             :attached_image, :server_id
   has_one :user
 
   def server
