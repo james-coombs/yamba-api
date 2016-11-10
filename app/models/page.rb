@@ -15,7 +15,7 @@ class Page < ActiveRecord::Base
   end
 
   def image_url
-    image.url
+    image.url(:medium)
   end
 
   before_post_process :rename_image
