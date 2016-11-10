@@ -35,21 +35,27 @@ class ServersController < OpenReadController
   # PATCH/PUT /servers/1
   # PATCH/PUT /servers/1.json
   def update
-    @server = Server.find(params[:id])
+    if current_user.id == @server.user_id
+      @server = Server.find(params[:id])
 
-    if @server.update(server_params)
-      head :no_content
-    else
-      render json: @server.errors, status: :unprocessable_entity
+      if @server.update(server_params)
+        head :no_content
+      else
+        render json: @server.errors, status: :unprocessable_entity
+      end
     end
   end
 
   # DELETE /servers/1
   # DELETE /servers/1.json
   def destroy
-    @server.destroy
+    if current_user.id == @server.user_id
+      @server.destroy
 
-    head :no_content
+      head :no_content
+    else
+      head :unauthorized
+    end
   end
 
   private

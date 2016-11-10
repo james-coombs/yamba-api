@@ -31,21 +31,27 @@ class PagesController < OpenReadController
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
   def update
-    @page = Page.find(params[:id])
+    if current_user.id == @page.user_id
+      @page = Page.find(params[:id])
 
-    if @page.update(page_params)
-      head :no_content
-    else
-      render json: @page.errors, status: :unprocessable_entity
+      if @page.update(page_params)
+        head :no_content
+      else
+        render json: @page.errors, status: :unprocessable_entity
+      end
     end
   end
 
   # DELETE /pages/1
   # DELETE /pages/1.json
   def destroy
-    @page.destroy
+    if current_user.id == @page.user_id
+      @page.destroy
 
-    head :no_content
+      head :no_content
+    else
+      head :unauthorized
+    end
   end
 
   private
