@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Server.create([
-                { name: 'Wember'},
+                { name: 'Yamba' },
            ])
 
 # Page.create([
