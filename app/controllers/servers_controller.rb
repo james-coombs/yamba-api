@@ -23,6 +23,7 @@ class ServersController < OpenReadController
   # POST /servers.json
   def create
     @server = Server.new(server_params)
+    # set @board id to match user who owns/created it
     @server.user_id = current_user.id
 
     if @server.save
@@ -35,27 +36,21 @@ class ServersController < OpenReadController
   # PATCH/PUT /servers/1
   # PATCH/PUT /servers/1.json
   def update
-    if current_user.id == @server.user_id
-      @server = Server.find(params[:id])
+    @server = Server.find(params[:id])
 
-      if @server.update(server_params)
-        head :no_content
-      else
-        render json: @server.errors, status: :unprocessable_entity
-      end
+    if @server.update(server_params)
+      head :no_content
+    else
+      render json: @server.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /servers/1
   # DELETE /servers/1.json
   def destroy
-    if current_user.id == @server.user_id
-      @server.destroy
+    @server.destroy
 
-      head :no_content
-    else
-      head :unauthorized
-    end
+    head :no_content
   end
 
   private

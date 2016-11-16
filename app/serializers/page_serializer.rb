@@ -11,6 +11,7 @@ class PageSerializer < ActiveModel::Serializer
     scope == object.user
   end
 
+  # property for attaching file to be uploaded
   def attached_image
     scope == object.image_file_name
   end

@@ -19,6 +19,7 @@ class PagesController < OpenReadController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
+    # set @page id to match user who owns/created it
     @page.user_id = current_user.id
 
     if @page.save
