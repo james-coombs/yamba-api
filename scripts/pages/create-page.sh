@@ -6,7 +6,7 @@ curl --include --request POST http://localhost:4741/pages \
       "title": "an title",
       "body": "an body",
       "user_id": 1,
-      "server_id": 1
+      "board_id": 1
     }
   }'
 
@@ -17,6 +17,6 @@ curl --include --request POST http://localhost:4741/pages \
       "title": "an example title",
       "body": "an example body",
       "user_id": 1,
-      "server_id": 1
+      "board_id": 1
     }
   }'
