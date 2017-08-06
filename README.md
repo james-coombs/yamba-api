@@ -2,9 +2,9 @@
 
 Screenshot: http://i.imgur.com/gW2FUHR.png
 
-Client repo: https://github.com/james-coombs/wember_client
+Client repo: https://github.com/james-coombs/yamba-client
 
-API repo: https://github.com/james-coombs/wember_api
+API repo: https://github.com/james-coombs/yamba-api
 
 Technologies:
 Ember.js client, ruby on rails API, SQL database.
