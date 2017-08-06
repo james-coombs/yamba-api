@@ -1,6 +1,6 @@
-class CreateServers < ActiveRecord::Migration
+class CreateBoards < ActiveRecord::Migration
   def change
-    create_table :servers do |t|
+    create_table :boards do |t|
       t.text :name
       t.references :user, index: true, foreign_key: true
 

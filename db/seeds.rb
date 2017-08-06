@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # creates a board without a user id, accessable to everyone
-Server.create([
+Board.create([
                 { name: 'Yamba' }
               ])

@@ -26,6 +26,6 @@ As a developer I want to use ember views and routes.
 
 I want to better use ember routes to display individual pages. I want to upload images on a deployed site. I had difficulty with data binding and route definition; trying to send things to the right places.
 
-I focused on one feature at a time, views for servers, pages, CRUD actions for both entities, and user ownership of their content. Tasks were usually started in the API, but often I would switch between working on both client and API.
+I focused on one feature at a time, views for boards, pages, CRUD actions for both entities, and user ownership of their content. Tasks were usually started in the API, but often I would switch between working on both client and API.
 
 Each task was broken down in to roughly 3 phases: research  (learning about what was required), testing  (writing code and de bugging), and implementation  (putting finishing touches on working code).

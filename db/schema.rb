@@ -38,17 +38,17 @@ ActiveRecord::Schema.define(version: 20161109180437) do
     t.datetime "image_updated_at"
   end
 
-  add_index "pages", ["server_id"], name: "index_pages_on_server_id", using: :btree
+  add_index "pages", ["board_id"], name: "index_pages_on_board_id", using: :btree
   add_index "pages", ["user_id"], name: "index_pages_on_user_id", using: :btree
 
-  create_table "servers", force: :cascade do |t|
+  create_table "boards", force: :cascade do |t|
     t.text     "name"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "servers", ["user_id"], name: "index_servers_on_user_id", using: :btree
+  add_index "boards", ["user_id"], name: "index_boards_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20161109180437) do
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
   add_foreign_key "examples", "users"
-  add_foreign_key "pages", "servers"
+  add_foreign_key "pages", "boards"
   add_foreign_key "pages", "users"
-  add_foreign_key "servers", "users"
+  add_foreign_key "boards", "users"
 end
