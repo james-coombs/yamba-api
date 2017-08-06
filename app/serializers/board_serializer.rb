@@ -1,4 +1,4 @@
-class ServerSerializer < ActiveModel::Serializer
+class BoardSerializer < ActiveModel::Serializer
   attributes :id, :name, :pages, :can_be_deleted
   has_one :user
 

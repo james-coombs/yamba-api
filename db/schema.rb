@@ -16,6 +16,15 @@ ActiveRecord::Schema.define(version: 20161109180437) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "boards", force: :cascade do |t|
+    t.text     "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "boards", ["user_id"], name: "index_boards_on_user_id", using: :btree
+
   create_table "examples", force: :cascade do |t|
     t.text     "text",       null: false
     t.integer  "user_id",    null: false
@@ -31,7 +40,7 @@ ActiveRecord::Schema.define(version: 20161109180437) do
     t.integer  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "server_id"
+    t.integer  "board_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -40,15 +49,6 @@ ActiveRecord::Schema.define(version: 20161109180437) do
 
   add_index "pages", ["board_id"], name: "index_pages_on_board_id", using: :btree
   add_index "pages", ["user_id"], name: "index_pages_on_user_id", using: :btree
-
-  create_table "boards", force: :cascade do |t|
-    t.text     "name"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "boards", ["user_id"], name: "index_boards_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 20161109180437) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
+  add_foreign_key "boards", "users"
   add_foreign_key "examples", "users"
   add_foreign_key "pages", "boards"
   add_foreign_key "pages", "users"
-  add_foreign_key "boards", "users"
 end

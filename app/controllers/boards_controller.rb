@@ -1,5 +1,5 @@
-class ServersController < OpenReadController
-  before_action :set_server, only: [:show, :update, :destroy]
+class BoardsController < OpenReadController
+  before_action :set_board, only: [:show, :update, :destroy]
 
   # GET /boards
   # GET /boards.json
@@ -22,7 +22,7 @@ class ServersController < OpenReadController
   # POST /boards
   # POST /boards.json
   def create
-    @board = Board.new(server_params)
+    @board = Board.new(board_params)
     # set @board id to match user who owns/created it
     @board.user_id = current_user.id
 
@@ -38,7 +38,7 @@ class ServersController < OpenReadController
   def update
     @board = Board.find(params[:id])
 
-    if @board.update(server_params)
+    if @board.update(board_params)
       head :no_content
     else
       render json: @board.errors, status: :unprocessable_entity
@@ -55,11 +55,11 @@ class ServersController < OpenReadController
 
   private
 
-    def set_server
+    def set_board
       @board = Board.find(params[:id])
     end
 
-    def server_params
+    def board_params
       params.require(:board).permit(:name, :user_id)
     end
 end
