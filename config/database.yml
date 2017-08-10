@@ -1,4 +1,4 @@
-<% project_name = 'wember-api' %>
+<% project_name = 'yamba-api' %>
 
 default: &default
   adapter: postgresql
@@ -7,8 +7,8 @@ default: &default
 
 development:
   <<: *default
-  database: wember-api_development
+  database: yamba-api_development
 
 test:
   <<: *default
-  database: wember-api_test
+  database: yamba-api_test
