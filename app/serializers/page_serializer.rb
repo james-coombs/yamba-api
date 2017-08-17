@@ -1,6 +1,6 @@
 class PageSerializer < ActiveModel::Serializer
   attributes :id, :title, :body, :board, :can_be_deleted, :image, :image_url,
-             :attached_image, :board_id
+             :attached_image, :board_id, :created_at
   has_one :user
 
   def board
